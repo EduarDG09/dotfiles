@@ -1,0 +1,105 @@
+// -*- mode: jsonc -*-
+{
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 20, // Waybar height (to be removed for auto height)
+    //"start_hidden": true,
+    // "width": 1280, // Waybar width
+    "spacing": 0, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+        "sway/workspaces",
+        "sway/scratchpad",
+        "tray"
+    ],
+    "modules-center": [
+        "sway/window"
+    ],
+    "modules-right": [
+    // "network#net2",
+        "keyboard-state",
+        "custom/vpn",
+        "network",
+        "pulseaudio",
+        "clock",
+        "custom/notification"
+    ],
+    "sway/window": {
+      "format": "{title}",
+      "max-length": 30,
+      "tooltip": false
+    },
+    "keyboard-state": {
+        "capslock": true,
+        "format": "{icon}",
+        "format-icons": {
+            "locked": " ",
+            "unlocked": ""
+        }
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+      "interval": 60,
+      "tooltip": true,
+      "format": "{:%I:%M%p}",
+      "tooltip-format": "{:%A %d, %B %Y}"
+    },
+    "network": {
+        "interval": 1,
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "",
+        "tooltip-format":" {bandwidthUpBytes}  {bandwidthDownBytes}",
+        "format-ethernet": "",
+        "format-linked": " ",
+        "format-disconnected": "⚠"
+        // "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "network#net2": {
+        "interval": 1,
+        "format": " {bandwidthUpBytes}  {bandwidthDownBytes}",
+        "tooltip-format": " {ifname} via {gwaddr}\n hola"
+    },
+    "pulseaudio": {
+        "format": " ",
+        "tooltip-format":"Volume: {volume}%",
+        "on-click": "pavucontrol"
+    },
+    "custom/vpn": {
+        "exec": "ip add show | grep -qF tun0 && echo VPN ",
+        "hide-empty-text": true,
+        "interval": 1
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+          "notification": "<span foreground='#ff9e64'><sup></sup></span>",
+          "none": "",
+          "dnd-notification": "<span foreground='#ff9e64'><sup></sup></span>",
+          "dnd-none": "",
+          "inhibited-notification": "<span foreground='#ff9e64'><sup></sup></span>",
+          "inhibited-none": "",
+          "dnd-inhibited-notification": "<span foreground='#ff9e64'><sup></sup></span>",
+          "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+  }
+}
