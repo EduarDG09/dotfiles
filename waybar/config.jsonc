@@ -41,9 +41,9 @@
         "format": "<span style=\"italic\">{}</span>"
     },
     "sway/scratchpad": {
-        "format": "{icon} {count}",
+        "format": "{icon}  {count}",
         "show-empty": false,
-        "format-icons": ["", ""],
+        "format-icons": ["", " "],
         "tooltip": true,
         "tooltip-format": "{app}: {title}"
     },
@@ -60,11 +60,12 @@
     "network": {
         "interval": 1,
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "",
+        "format-wifi": "    {essid}",
         "tooltip-format":" {bandwidthUpBytes}  {bandwidthDownBytes}",
-        "format-ethernet": "",
+        "format-ethernet": "  Wired",
         "format-linked": " ",
-        "format-disconnected": "⚠"
+        "format-disconnected": "⚠",
+        "on-click": "/home/eduardo/.config/rofi/wifi-menu/networkmanager_dmenu"
         // "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "network#net2": {

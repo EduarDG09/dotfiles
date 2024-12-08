@@ -27,7 +27,7 @@ set $menu ~/.config/rofi/launchers/type-3/launcher.sh
 ### Output configuration
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/eduardo/Pictures/wallhaven-ex5328.jpg fill
+output * bg /home/eduardo/Pictures/japan3.jpg fill
 #
 # Example configuration:
 #
@@ -239,6 +239,9 @@ bindsym $mod+r mode "resize"
     bindsym Print exec grim
     bindsym $mod+Shift+S exec slurp | grim -g - - | wl-copy
 
+    bindsym $mod+Alt+B exec /home/eduardo/.config/rofi/bluetooth-menu/rofi-bluetooth
+    bindsym $mod+Alt+W exec /home/eduardo/.config/rofi/wifi-menu/networkmanager_dmenu
+
 #
 # Status Bar:
 #
@@ -249,3 +252,4 @@ bar {
 
 include /etc/sway/config.d/*
 exec swaync
+exec rquickshare & 
