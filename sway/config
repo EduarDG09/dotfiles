@@ -241,6 +241,7 @@ bindsym $mod+r mode "resize"
 
     bindsym $mod+Alt+B exec /home/eduardo/.config/rofi/bluetooth-menu/rofi-bluetooth
     bindsym $mod+Alt+W exec /home/eduardo/.config/rofi/wifi-menu/networkmanager_dmenu
+    bindsym $mod+period exec rofimoji
 
 #
 # Status Bar:

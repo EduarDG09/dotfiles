@@ -4,6 +4,7 @@
     font-weight: bold;
     padding: 0px 2px;
     font-size: 12px;
+    transition: background-color linear 150ms;
 }
 
 window#waybar {
@@ -100,7 +101,7 @@ button:hover {
 
 #window,
 #workspaces {
-    margin: 0 4px;
+    /*margin: 0 4px;*/
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -204,12 +205,17 @@ label:focus {
 #pulseaudio {
   transition: background-color linear 150ms;
   padding: 0 8px;
-  padding-right: 4px;
 }
 
 #pulseaudio.muted {
-    background-color: #D2D2D2;
-    color: #1C1C1C;
+    /*background-color: #D2D2D2;*/
+    /*color: #1C1C1C;*/
+    background-color: #c53b53;
+    box-shadow: inset rgba(0, 0, 0, 0.3) 1px 1px 3px, inset rgba(0, 0, 0, 0.3) -1px -1px 3px;
+}
+
+#pulseaudio.bluetooth {
+  background-color: #3d59a1; 
 }
 
 #wireplumber {
@@ -222,8 +228,8 @@ label:focus {
 }
 
 #custom-media {
-    background-color: #66cc99;
-    color: #2a5c45;
+    /*background-color: #66cc99;*/
+    color: #ffffff;
     min-width: 100px;
 }
 
@@ -243,12 +249,32 @@ label:focus {
 
 #custom-notification {
   min-width: 20px;
-  margin-right: 4px;
   font-size: 14px;
   padding: 0 2px;
+  padding-right: 6px;
 }
 
 #custom-notification:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#custom-power {
+  min-width: 20px;
+  margin-right: 4px;
+  font-size: 14px;
+  padding: 0 4px;
+  padding-right: 6px;
+}
+
+#custom-power:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#custom-apps {
+  padding: 0px 6px;
+  margin-left: 2px;
+}
+#custom-apps:hover {
     background: rgba(0, 0, 0, 0.2);
 }
 
