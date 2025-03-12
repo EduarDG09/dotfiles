@@ -11,7 +11,6 @@
         "custom/apps",
         "sway/workspaces",
         "sway/scratchpad",
-        "custom/media",
         "tray"
     ],
     "modules-center": [
@@ -19,6 +18,7 @@
     ],
     "modules-right": [
     // "network#net2",
+        "custom/audio_idle_inhibitor",
         "keyboard-state",
         "custom/vpn",
         "network",
@@ -30,8 +30,16 @@
     "sway/window": {
       "format": "{title}",
       "max-length": 30,
-      "tooltip": false
+      "tooltip": false,
+      "on-click-right": "swaymsg kill"
     },
+    //"sway/workspaces": {
+    //  "persistent-workspaces": {
+    //    "1": [],
+    //    "2": [],
+    //    "3": []
+    //  }
+    //},
     "keyboard-state": {
         "capslock": true,
         "format": "{icon}",
@@ -111,10 +119,22 @@
   },
   "custom/power": {
         "format": "⏻",
-        "on-click": "~/.config/rofi/powermenu/type-3/powermenu.sh"
+        "on-click": "~/.config/rofi/powermenu/type-2/powermenu.sh"
   },
   "custom/apps": {
     "format": " ",
     "on-click": "~/.config/rofi/launchers/type-3/launcher.sh"
-  }
+  },
+	"custom/audio_idle_inhibitor": {
+		"format": "{icon}",
+		"exec": "sway-audio-idle-inhibit --dry-print-both-waybar",
+		"exec-if": "which sway-audio-idle-inhibit",
+		"return-type": "json",
+		"format-icons": {
+			"output": " ",
+			"input": " ",
+			"output-input": "   ",
+			"none": ""
+		}
+	}
 }
