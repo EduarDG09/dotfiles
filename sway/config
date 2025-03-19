@@ -7,7 +7,8 @@ default_border pixel 2
 gaps inner 4
 gaps outer 4
 font pango:Inter 10
-client.focused #9d7cd8 #9d7cd8 #ffffff #ff9e64 #9d7cd8
+# client.focused #9d7cd8 #9d7cd8 #ffffff #ff9e64 #9d7cd8
+client.focused #414868 #414868 #ffffff #3d59a1 #414868
 seat seat0 xcursor_theme 'Bibata-Modern-Classic'
 
 ### Variables
@@ -74,6 +75,8 @@ input "type:pointer" accel_profile flat
     bindsym $mod+p output DP-3 power toggle
     bindsym $mod+shift+p output DP-3 toggle
     for_window [class="scrcpy"] floating enable, border pixel 2
+    for_window [app_id = ".*Calculator.*"] floating enable, border pixel 2
+
     bindsym $mod+Alt+p exec scrcpy --tcpip=192.168.1.252 --no-audio
     # Start a terminal
     bindsym $mod+Return exec $term
@@ -174,7 +177,7 @@ input "type:pointer" accel_profile flat
     bindsym $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle, border pixel 1
+    bindsym $mod+Shift+space floating toggle, border pixel 2
 
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
