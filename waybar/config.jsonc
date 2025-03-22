@@ -2,7 +2,7 @@
 {
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 20, // Waybar height (to be removed for auto height)
+    "height": 25, // Waybar height (to be removed for auto height)
     //"start_hidden": true,
     // "width": 1280, // Waybar width
     "spacing": 0, // Gaps between modules (4px)
@@ -22,8 +22,8 @@
         "keyboard-state",
         "custom/vpn",
         "network",
-        "pulseaudio",
         "clock",
+        "pulseaudio",
         "custom/notification",
         "custom/power"
     ],
@@ -62,12 +62,36 @@
         // "icon-size": 21,
         "spacing": 10
     },
-    "clock": {
-      "interval": 60,
-      "tooltip": true,
-      "format": "{:%I:%M%p}",
-      "tooltip-format": "{:%A %d, %B %Y}"
-    },
+    //"clock": {
+    //  "interval": 60,
+    //  "tooltip": true,
+    //  "format": "   {:%I:%M%p}",
+    //  "tooltip-format": "{:%A %d, %B %Y}"
+     "clock": {
+        "format": "   {:%H:%M}",
+        "format-alt": "  {:%A, %B %d, %Y (%R)}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+                    "mode"          : "month",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              }
+                    },
+        "actions":  {
+                    "on-click-right": "mode",
+                    "on-scroll-up": "tz_down",
+                    "on-scroll-down": "tz_up",
+                    "on-scroll-up": "shift_down",
+                    "on-scroll-down": "shift_up"
+                    }
+    },   //},
     "network": {
         "interval": 1,
         // "interface": "wlp2*", // (Optional) To force the use of this interface
@@ -85,7 +109,7 @@
         "tooltip-format": " {ifname} via {gwaddr}\n hola"
     },
     "pulseaudio": {
-        "format": "{icon} ",
+        "format": "{icon}",
         "tooltip-format":"Volume: {volume}%",
         "format-icons": ["","",""],
         "format-muted": " ",
@@ -118,7 +142,7 @@
         "escape": true
   },
   "custom/power": {
-        "format": "⏻",
+        "format": "",
         "on-click": "~/.config/rofi/powermenu/type-2/powermenu.sh"
   },
   "custom/apps": {

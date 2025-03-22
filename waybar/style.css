@@ -203,8 +203,9 @@ label:focus {
 }
 
 #pulseaudio {
+  min-width: 20px;
   transition: background-color linear 150ms;
-  padding: 0 8px;
+  padding: 0 4px;
 }
 
 #pulseaudio.muted {
