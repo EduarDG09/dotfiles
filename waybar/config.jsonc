@@ -10,14 +10,16 @@
     "modules-left": [
         "custom/apps",
         "sway/workspaces",
-        "sway/scratchpad",
-        "tray"
+        //"sway/scratchpad",
+        "sway/mode",
+        "sway/window"
     ],
     "modules-center": [
-        "sway/window"
+      "mpris"
     ],
     "modules-right": [
     // "network#net2",
+        "tray",
         "custom/audio_idle_inhibitor",
         "keyboard-state",
         "custom/vpn",
@@ -28,7 +30,7 @@
         "custom/power"
     ],
     "sway/window": {
-      "format": "{title}",
+      "format": "{app_id}",
       "max-length": 30,
       "tooltip": false,
       "on-click-right": "swaymsg kill"
@@ -49,7 +51,8 @@
         }
     },
     "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
+        //"format": "<span style=\"italic\">{}</span>"
+        "format": "{}"
     },
     "sway/scratchpad": {
         "format": "{icon}  {count}",
@@ -160,5 +163,17 @@
 			"output-input": "   ",
 			"none": ""
 		}
-	}
+	},
+  "mpris": {
+	"format": "{title} - {artist} - {album}",
+	"format-paused": "<i>{status_icon} {title} - {artist} - {album}</i>",
+	"player-icons": {
+      "default": "▶",
+      "mpv": "🎵"
+    },
+	"status-icons": {
+      "paused": "⏸"
+    },
+  "ignored-players": ["firefox"]
+}
 }

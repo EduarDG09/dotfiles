@@ -76,7 +76,11 @@ button:hover {
 }
 
 #mode {
-    background-color: #64727D;
+    margin-right: 6px;
+    min-width: 10px;
+    padding: 0 4px;
+    background-color: #ff9e64;
+    color: #ff9e64;
 }
 
 #battery,
