@@ -5,7 +5,7 @@
 # Read `man 5 sway` for a complete reference.
 default_border pixel 2
 gaps inner 8
-gaps outer 4
+# gaps outer 4
 font pango:Inter 10
 # client.focused #9d7cd8 #9d7cd8 #ffffff #ff9e64 #9d7cd8
 client.focused #414868 #414868 #ffffff #3d59a1 #414868
@@ -185,7 +185,7 @@ input "type:pointer" accel_profile flat
 #
 # Modes
 #
-set $workspaces 󰕔
+set $workspaces 󰯍
 bindsym $mod+w mode "$workspaces" 
 mode $workspaces {
     

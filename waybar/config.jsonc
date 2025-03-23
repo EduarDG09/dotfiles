@@ -2,13 +2,13 @@
 {
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 25, // Waybar height (to be removed for auto height)
+    "height": 30, // Waybar height (to be removed for auto height)
     //"start_hidden": true,
     // "width": 1280, // Waybar width
-    "spacing": 0, // Gaps between modules (4px)
+    "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "custom/apps",
+        //"custom/apps",
         "sway/workspaces",
         //"sway/scratchpad",
         "sway/mode",
@@ -19,15 +19,15 @@
     ],
     "modules-right": [
     // "network#net2",
-        "tray",
+        //"tray",
         "custom/audio_idle_inhibitor",
         "keyboard-state",
         "custom/vpn",
         "network",
-        "clock",
         "pulseaudio",
-        "custom/notification",
-        "custom/power"
+        "clock"
+        //"custom/notification"
+        //"custom/power"
     ],
     "sway/window": {
       "format": "{app_id}",
@@ -73,8 +73,8 @@
     //  "format": "   {:%I:%M%p}",
     //  "tooltip-format": "{:%A %d, %B %Y}"
      "clock": {
-        "format": "   {:%H:%M}",
-        "format-alt": "  {:%A, %B %d, %Y (%R)}",
+        "format": "{:%B %d, %Y   %H:%M}",
+        //"format-alt": "  {:%A, %B %d, %Y (%R)}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
                     "mode"          : "month",
@@ -102,8 +102,8 @@
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "    {essid}",
         "tooltip-format":" {bandwidthUpBytes}  {bandwidthDownBytes}",
-        "format-ethernet": "  Wired",
-        "format-linked": " ",
+        "format-ethernet": "󰈁",
+        "format-linked": "󰈁 ",
         "format-disconnected": "⚠",
         "on-click": "/home/eduardo/.config/rofi/wifi-menu/networkmanager_dmenu"
         // "format-alt": "{ifname}: {ipaddr}/{cidr}"
@@ -114,7 +114,7 @@
         "tooltip-format": " {ifname} via {gwaddr}\n hola"
     },
     "pulseaudio": {
-        "format": "{icon}",
+        "format": " {icon} ",
         "tooltip-format":"Volume: {volume}%",
         "format-icons": ["","",""],
         "format-muted": " ",
@@ -160,22 +160,22 @@
 		"exec-if": "which sway-audio-idle-inhibit",
 		"return-type": "json",
 		"format-icons": {
-			"output": " ",
+			"output": "",
 			"input": " ",
 			"output-input": "   ",
 			"none": ""
 		}
 	},
   "mpris": {
-	"format": "{title} - {artist} - {album}",
-	"format-paused": "<i>{status_icon} {title} - {artist} - {album}</i>",
-	"player-icons": {
-      "default": "▶",
-      "mpv": "🎵"
-    },
-	"status-icons": {
-      "paused": "⏸"
-    },
-  "ignored-players": ["firefox"]
-}
+    "format": "{title} - {artist} - {album}",
+    "format-paused": "<i>{status_icon} {title} - {artist} - {album}</i>",
+    "player-icons": {
+        "default": "▶",
+        "mpv": "🎵"
+      },
+    "status-icons": {
+        "paused": "⏸"
+      },
+    "ignored-players": ["firefox"]
+  }
 }
