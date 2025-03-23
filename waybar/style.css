@@ -8,8 +8,8 @@
 }
 
 window#waybar {
-    background: rgb(59,66,97);
-    background-image: linear-gradient(to right bottom, #3b4261, #363d59, #323851, #2d334a, #292e42);
+    background: rgba(59,66,97,.8);
+    /*background-image: linear-gradient(to right bottom, #3b4261, #363d59, #323851, #2d334a, #292e42);*/
     color: #ffffff;
     transition-property: background-color;
     margin-left: 2px;

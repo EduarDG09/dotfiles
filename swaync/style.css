@@ -1,4 +1,4 @@
-@define-color cc-bg #292e42;
+@define-color cc-bg rgba(41, 46, 66, 0.8);
 @define-color noti-border-color transparent;
 @define-color noti-bg #3b4261;
 @define-color noti-bg-opaque #24283b;
@@ -275,13 +275,13 @@
 
 .control-center {
   /* The Control Center which contains the old notifications + widgets */
-  /*background: @cc-bg;*/
-  background: linear-gradient(to bottom, #292e42 0%,#1f2335 100%);
+  background: @cc-bg;
+  /*background: linear-gradient(to bottom, #292e42 0%,#1f2335 100%);*/
   color: @text-color;
   border-radius: 0px;
   padding: 8px;
   padding-top: 0px;
-  box-shadow: -2px 0px 4px rgba(0,0,0,.3);
+  /*box-shadow: -2px 0px 4px rgba(0,0,0,.3);*/
 }
 
 .control-center .control-center-list-placeholder {
@@ -436,7 +436,8 @@
   margin: 0px -8px;
   border-radius: 0px;
   box-shadow: inset 1px 3px 5px rgba(0,0,0,.2), inset -1px -1px 3px rgba(0,0,0,.2);
-  background-color: #24283b;
+  background-color: rgba(36, 40, 59, .2)
+;
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button {

@@ -35,13 +35,15 @@
       "tooltip": false,
       "on-click-right": "swaymsg kill"
     },
-    //"sway/workspaces": {
-    //  "persistent-workspaces": {
-    //    "1": [],
-    //    "2": [],
-    //    "3": []
-    //  }
-    //},
+    "sway/workspaces": {
+      "persistent-workspaces": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": []
+      }
+    },
     "keyboard-state": {
         "capslock": true,
         "format": "{icon}",
