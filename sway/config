@@ -3,7 +3,7 @@
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
 # Read `man 5 sway` for a complete reference.
-default_border pixel 2
+default_border pixel 0
 gaps inner 8
 # gaps outer 4
 font pango:Inter 10
@@ -28,7 +28,7 @@ set $menu rofi -show drun
 ### Output configuration
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/eduardo/Pictures/wallhaven-3lxzm3_1920x1080.png fill
+output * bg /home/eduardo/Pictures/wallhaven-wepq1r_1920x1080.png fill
 #
 # Example configuration:
 #
@@ -38,11 +38,20 @@ output * bg /home/eduardo/Pictures/wallhaven-3lxzm3_1920x1080.png fill
 
 ### swayfx 
 shadows enable
+shadows_on_csd enable
+shadow_blur_radius 8
+shadow_color #000000B9
 blur enable
 corner_radius 8
-default_dim_inactive 0.3 
+default_dim_inactive 0.4 
 
 layer_effects "waybar" {
+  blur enable;
+  blur_ignore_transparent enable;
+  shadows enable;
+}
+
+layer_effects "gtk-layer-shell" {
   blur enable;
   blur_ignore_transparent enable;
   shadows enable;
@@ -59,6 +68,13 @@ layer_effects "swaync-control-center" {
   blur_ignore_transparent enable;
   shadows enable;
 }
+
+layer_effects "swaync-notification-window" {
+  blur enable;
+  blur_ignore_transparent enable;
+  # shadows enable;
+}
+
 ### Idle configuration
 exec swayidle -w \
       timeout 550 'swaylock -f' \
@@ -97,14 +113,14 @@ input "type:pointer" accel_profile flat
     bindsym $mod+Alt+l exec swaylock -f
     bindsym $mod+p output DP-3 power toggle
     bindsym $mod+shift+p output DP-3 toggle
-    for_window [class="scrcpy"] floating enable, border pixel 2
-    for_window [app_id = ".*Calculator.*"] floating enable, border pixel 2
+    for_window [class="scrcpy"] floating enable, border pixel 0
+    for_window [app_id = ".*Calculator.*"] floating enable, border pixel 0
 
     bindsym $mod+Alt+p exec scrcpy --tcpip=192.168.1.252 --no-audio
     # Start a terminal
     bindsym $mod+Return exec $term
 
-    for_window [app_id="kittyfloat"] floating enable, border pixel 2
+    for_window [app_id="kittyfloat"] floating enable, border pixel 0
     bindsym $mod+Shift+Return exec kitty --class kittyfloat, kittyfloat
     bindsym $mod+Shift+n exec swaync-client -t -sw
     bindsym $mod+y exec ani-cli --rofi -q 1080
@@ -174,7 +190,7 @@ input "type:pointer" accel_profile flat
     bindsym $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle, border pixel 2
+    bindsym $mod+Shift+space floating toggle, border pixel 0
 
     # Swap focus between the tiling area and the floating area
     bindsym $mod+Tab focus mode_toggle
@@ -248,7 +264,7 @@ mode $launch {
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym Ctrl+Tab scratchpad show, border pixel 2
+    bindsym Ctrl+Tab scratchpad show, border pixel 0
 #
 # Resizing containers:
 #
@@ -303,7 +319,7 @@ bindsym $mod+r mode "resize"
 
     bindsym $mod+Alt+B exec /home/eduardo/.config/rofi/bluetooth-menu/rofi-bluetooth
     bindsym $mod+Alt+N exec /home/eduardo/.config/rofi/wifi-menu/networkmanager_dmenu
-    bindsym $mod+period exec rofimoji
+    bindsym $mod+period exec rofimoji -a copy
 
 #
 # Status Bar:

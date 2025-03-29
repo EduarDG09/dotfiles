@@ -20,20 +20,25 @@
     "modules-right": [
     // "network#net2",
         //"tray",
-        "custom/audio_idle_inhibitor",
+        //"custom/audio_idle_inhibitor",
         "keyboard-state",
         "custom/vpn",
         "network",
         "pulseaudio",
         "clock"
-        //"custom/notification"
+        // "custom/notification"
         //"custom/power"
     ],
     "sway/window": {
       "format": "{app_id}",
       "max-length": 30,
       "tooltip": false,
-      "on-click-right": "swaymsg kill"
+      "on-click-right": "swaymsg kill",
+      "rewrite": {
+        "(^org[.])(.*[.])(.*)": "$3",
+        "(^com[.]github[.])(.*[.])(.*)": "$3",
+        "kitty.*": "   terminal"
+      }
     },
     "sway/workspaces": {
       "persistent-workspaces": {

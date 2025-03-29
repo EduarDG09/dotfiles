@@ -1,4 +1,4 @@
-@define-color cc-bg rgba(41, 46, 66, 0.8);
+@define-color cc-bg rgba(41, 46, 66, 0.5);
 @define-color noti-border-color transparent;
 @define-color noti-bg #3b4261;
 @define-color noti-bg-opaque #24283b;
@@ -44,17 +44,19 @@
 
 .notification-row .notification-background .notification {
   /* The actual notification */
-  border-radius: 4px;
+  border-radius: 8px;
   /*border: 1px solid #737aa2;*/
-  box-shadow: 2px 4px 2px rgba(0,0,0,.3);
+  /*box-shadow: 2px 4px 2px rgba(0,0,0,.3);*/
   transition: background 0.15s ease-in-out;
-  background: @noti-bg;
+  /*background: @noti-bg;*/
+  background: rgba(115, 122, 162, .65);
    /*background-image: linear-gradient(to right bottom, #565f89, #515981, #4b5378, #464e70, #414868);*/
 }
 
 .notification:focus, .notification:hover {
   /*background: @noti-bg-focus;*/
-  background-image: linear-gradient(to right bottom, #565f89, #515981, #4b5378, #464e70, #414868);
+  background: rgba(169, 177, 214, .8);
+  /*background-image: linear-gradient(to right bottom, #565f89, #515981, #4b5378, #464e70, #414868);*/
 }
 
 
@@ -83,7 +85,8 @@
 .notification-row .notification-background .notification .notification-action:hover, .notification-row .notification-background .notification .notification-default-action:hover {
   -gtk-icon-effect: none;
   /*background: @noti-bg-hover;*/
-  background-image: linear-gradient(to right bottom, #565f89, #515981, #4b5378, #464e70, #414868);
+  /*background-image: linear-gradient(to right bottom, #565f89, #515981, #4b5378, #464e70, #414868);*/
+  background: rgba(115, 122, 162, .4);
 }
 
 .notification-row .notification-background .notification .notification-default-action {
@@ -252,7 +255,8 @@
 }
 
 .notification-group.collapsed .notification-row .notification {
-  background-color: @noti-bg;
+  /*background-color: @noti-bg;*/
+  background: rgba(115, 122, 162, .6);
   box-shadow: 2px 4px 4px rgba(0,0,0,.2);
 }
 
@@ -276,9 +280,10 @@
 .control-center {
   /* The Control Center which contains the old notifications + widgets */
   background: @cc-bg;
+  /* border: 2px solid rgba(86, 95, 137, 1); */
   /*background: linear-gradient(to bottom, #292e42 0%,#1f2335 100%);*/
   color: @text-color;
-  border-radius: 0px;
+  border-radius: 8px;
   padding: 8px;
   padding-top: 0px;
   /*box-shadow: -2px 0px 4px rgba(0,0,0,.3);*/
@@ -306,7 +311,7 @@
 
 .control-center .control-center-list .notification .notification-default-action:hover,
 .control-center .control-center-list .notification .notification-action:hover {
-  background-color: @noti-bg-hover;
+  background-color: rgba(169, 177, 214, .3);
 }
 
 .blank-window {
@@ -325,7 +330,8 @@
 /*** Widgets ***/
 /* Title widget */
 .widget-title {
-  color: @text-color;
+  /* color: @text-color; */
+  color: rgba(255, 255, 255, .6);
   margin: 8px;
   font-size: 1.5rem;
 }
@@ -334,15 +340,16 @@
   font-size: 14px;
   color: @text-color;
   text-shadow: none;
-  background: @noti-bg;
+  /*background: @noti-bg;*/
   border: 1px solid @noti-border-color;
   box-shadow: none;
   border-radius: 4px;
+  background: rgba(115, 122, 162, .4);
 }
 
 .widget-title > button:hover {
   /*background: @noti-bg-hover;*/
-  background-image: linear-gradient(to right bottom, #565f89, #515981, #4b5378, #464e70, #414868);
+  background: rgba(115, 122, 162, .7);
 }
 
 /* DND widget */
@@ -434,19 +441,22 @@
   padding: 8px;
   /*margin: 8px;*/
   margin: 0px -8px;
-  border-radius: 0px;
-  box-shadow: inset 1px 3px 5px rgba(0,0,0,.2), inset -1px -1px 3px rgba(0,0,0,.2);
+  border-radius: 8px;
+  /*box-shadow: inset 1px 3px 5px rgba(0,0,0,.2), inset -1px -1px 3px rgba(0,0,0,.2);*/
   background-color: rgba(36, 40, 59, .2)
 ;
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button {
-  background: @noti-bg;
-  border-radius: 4px;
+  background: rgba(115, 122, 162, .4);
+  border-radius: 6px;
   min-height: 30px;
   font-size: 16px;
 }
 
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  background: rgba(115, 122, 162, .7);
+}
 .widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked {
   /* style given to the active toggle button */
   /*background: @noti-bg-hover;*/
