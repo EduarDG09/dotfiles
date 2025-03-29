@@ -37,7 +37,7 @@
       "rewrite": {
         "(^org[.])(.*[.])(.*)": "$3",
         "(^com[.]github[.])(.*[.])(.*)": "$3",
-        "kitty.*": "   terminal"
+        "kitty.*": "Terminal"
       }
     },
     "sway/workspaces": {
