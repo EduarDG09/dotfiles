@@ -56,15 +56,15 @@ button:hover {
     background: rgba(0, 0, 0, 0.2);
 }
 #workspaces {
-  margin-left: 6px;
+    margin-left: 6px;
 }
 #workspaces button {
-    padding: 0 5px;
+    padding: 0;
     background-color: transparent;
     color: #ffffff;
     margin: 4px 0px;
     /*margin-right: 4px;*/
-    margin-left: 2px;
+    margin-left: 4px;
     transition: padding linear 200ms;
 }
 
@@ -74,8 +74,8 @@ button:hover {
 
 #workspaces button.focused {
     background-color: #7aa2f7;
-    padding: 0 10px;
-    box-shadow: inset rgba(57, 75, 112, .5) 1px 1px 3px, inset rgba(57, 75, 112, .5) -1px -1px 3px;
+    padding: 0;
+    box-shadow: inset rgba(0, 0, 0, .3) 1px 1px 3px, inset rgba(0, 0, 0, .3) -1px -1px 3px;
 }
 
 #workspaces button.urgent {

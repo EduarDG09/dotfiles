@@ -123,8 +123,6 @@ input "type:pointer" accel_profile flat
     for_window [app_id="kittyfloat"] floating enable, border pixel 0
     bindsym $mod+Shift+Return exec kitty --class kittyfloat, kittyfloat
     bindsym $mod+Shift+n exec swaync-client -t -sw
-    bindsym $mod+y exec ani-cli --rofi -q 1080
-    bindsym $mod+Alt+y exec ani-cli --rofi -c -q 1080
     bindsym Alt+Tab exec rofi -show window
 
     # Kill focused window
@@ -249,6 +247,21 @@ mode $launch {
     bindsym e exec nemo, mode "default"
     bindsym d exec $menu, mode "default"
     bindsym s exec spotify-launcher, mode "default"
+    bindsym n exec kitty nvim, mode "default"
+    bindsym Shift+n exec kitty --class kittyfloat nvim, mode "default"
+    bindsym a exec ani-cli --rofi -q 1080, mode "default"
+    bindsym Shift+a exec ani-cli --rofi -c -q 1080, mode "default"
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+
+set $power 
+bindsym $mod+x mode "$power"
+mode $power {
+    
+    bindsym q exec systemctl poweroff
+    bindsym w exec systemctl reboot
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
