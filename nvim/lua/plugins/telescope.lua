@@ -19,5 +19,6 @@ return {
         cwd = vim.fn.stdpath("config")
       }
     end)
+    vim.keymap.set("n", "<space>fb", require('telescope.builtin').buffers)
   end
 }
