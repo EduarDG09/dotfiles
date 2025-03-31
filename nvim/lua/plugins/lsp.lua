@@ -3,23 +3,15 @@ return {
   dependencies = {
     "williamboman/mason.nvim",
     "folke/neodev.nvim",
+    "saghen/blink.cmp",
   },
   config = function()
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities.textDocument.completion.completionItem.snippetSupport = true
-
+    local capabilities = require('blink.cmp').get_lsp_capabilities()
     local lspconfig = require("lspconfig")
-
     require("neodev").setup()
 
     lspconfig.lua_ls.setup({
       capabilities = capabilities,
-      settings = {
-        Lua = {
-          telemetry = { enable = false },
-          workspace = { checkThirdParty = false }
-        }
-      }
     })
 
     lspconfig.ts_ls.setup({
