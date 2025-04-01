@@ -19,6 +19,11 @@ return {
         cwd = vim.fn.stdpath("config")
       }
     end)
+    vim.keymap.set("n", "<space>fk", function()
+      require('telescope.builtin').live_grep {
+        cwd = "/mnt/files/nextcloud/wiki/"
+      }
+    end)
     vim.keymap.set("n", "<space>fb", require('telescope.builtin').buffers)
   end
 }

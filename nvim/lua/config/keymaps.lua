@@ -7,7 +7,7 @@ vim.keymap.set('n', 'N', 'Nzzzv',
   { desc = "Go to previous search result, and puts the cursor at the middle of the screen" })
 vim.keymap.set('n', '<C-s>', ':w<cr>', { desc = "Save current buffer" })
 vim.keymap.set('n', '<leader>qq', ':q!<cr>', { desc = "Close window" })
-vim.keymap.set('n', '<space><space>x', '<cmd>source %<CR>')
+vim.keymap.set('n', '<space><space>x', ':source %<CR>')
 vim.keymap.set('n', '<space>x', ':.lua<CR>')
 vim.keymap.set('v', '<space>x', '::lua<CR>')
 vim.keymap.set('n', '<M-j>', '<cmd>cnext<CR>')
