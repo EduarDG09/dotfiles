@@ -4,7 +4,7 @@ local types = require "luasnip.util.types"
 local M = {}
 
 function M.setup()
-  ls.config.set_config{
+  ls.config.set_config {
     history = true,
     updateevents = "TextChanged,TextChangedI",
     enable_autosnippets = true,
@@ -17,19 +17,19 @@ function M.setup()
     }
   }
 
-  vim.keymap.set({"i", "s"}, "<c-k>", function()
+  vim.keymap.set({ "i", "s" }, "<c-k>", function()
     if ls.expand_or_jumpable() then
       ls.expand_or_jump()
     end
-  end, {silent = true})
+  end, { silent = true })
 
-  vim.keymap.set({"i", "s"}, "<c-j>", function()
+  vim.keymap.set({ "i", "s" }, "<c-j>", function()
     if ls.jumpable(-1) then
       ls.jump(-1)
     end
-  end, {silent = true})
+  end, { silent = true })
 
-  vim.keymap.set({"i"}, "<c-l>", function()
+  vim.keymap.set({ "i" }, "<c-l>", function()
     if ls.choice_active() then
       ls.change_choice(1)
     end

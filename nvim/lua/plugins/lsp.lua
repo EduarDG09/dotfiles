@@ -3,12 +3,11 @@ return {
   dependencies = {
     "williamboman/mason.nvim",
     "folke/neodev.nvim",
-    "saghen/blink.cmp",
   },
   config = function()
-    local capabilities = require('blink.cmp').get_lsp_capabilities()
+    local capabilities = require('cmp_nvim_lsp').default_capabilities()
     local lspconfig = require("lspconfig")
-    require("neodev").setup()
+    -- require("neodev").setup()
 
     lspconfig.lua_ls.setup({
       capabilities = capabilities,
@@ -16,6 +15,10 @@ return {
 
     lspconfig.ts_ls.setup({
       capabilities = capabilities,
+      filetypes = {
+        "javascript",
+        "typescript",
+      }
     })
 
     lspconfig.cssls.setup({

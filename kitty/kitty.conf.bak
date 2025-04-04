@@ -6,7 +6,7 @@
 #: individual font faces and even specify special fonts for particular
 #: characters.
 
-# font_family      monospace
+font_family      MesloLGS Nerd Font 
 # bold_font        auto
 # italic_font      auto
 # bold_italic_font auto
@@ -20,7 +20,7 @@
 #: <https://sw.kovidgoyal.net/kitty/kittens/choose-fonts/#font-spec-
 #: syntax>.
 
-# font_size 11.0
+font_size 10.0
 
 #: Font size (in pts).
 
@@ -307,7 +307,7 @@
 #: Stop blinking cursor after the specified number of seconds of
 #: keyboard inactivity. Set to zero to never stop blinking.
 
-# cursor_trail 0
+cursor_trail 1
 
 #: Set this to a value larger than zero to enable a "cursor trail"
 #: animation. This is an animation that shows a "trail" following the
@@ -772,7 +772,7 @@
 
 #: Terminal bell {{{
 
-# enable_audio_bell yes
+enable_audio_bell no
 
 #: The audio bell. Useful to disable it in environments that require
 #: silence.
@@ -849,9 +849,9 @@
 
 #: Window layout {{{
 
-# remember_window_size  yes
-# initial_window_width  640
-# initial_window_height 400
+remember_window_size  no
+initial_window_width  720
+initial_window_height 500
 
 #: If enabled, the OS Window size will be remembered so that new
 #: instances of kitty will have the same size as the previous
@@ -906,14 +906,14 @@
 #: set the vertical and horizontal sides. Three values set top,
 #: horizontal and bottom. Four values set top, right, bottom and left.
 
-# window_padding_width 0
+window_padding_width 6 8
 
 #: The window padding (in pts) (blank area between the text and the
 #: window border). A single value sets all four sides. Two values set
 #: the vertical and horizontal sides. Three values set top, horizontal
 #: and bottom. Four values set top, right, bottom and left.
 
-single_window_padding_width 12
+# single_window_padding_width 18
 
 #: The window padding to use when only a single window is visible (in
 #: pts). Negative values will cause the value of window_padding_width
@@ -1217,7 +1217,7 @@ single_window_padding_width 12
 
 #: The foreground and background colors.
 
-# background_opacity 1.0
+background_opacity 0.9
 
 #: The opacity of the background. A number between zero and one, where
 #: one is opaque and zero is fully transparent. This will only work if
@@ -1242,7 +1242,7 @@ single_window_padding_width 12
 #: will only work if dynamic_background_opacity was enabled in the
 #: original config.
 
-# background_blur 0
+# background_blur 12
 
 #: Set to a positive value to enable background blur (blurring of the
 #: visuals behind a transparent window) on platforms that support it.
@@ -2638,3 +2638,9 @@ single_window_padding_width 12
 #: }}}
 
 #: }}}
+
+
+# BEGIN_KITTY_THEME
+# Tokyo Night
+include current-theme.conf
+# END_KITTY_THEME

@@ -3,12 +3,12 @@
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
 # Read `man 5 sway` for a complete reference.
-default_border pixel 0
+default_border pixel 2
 gaps inner 8
 # gaps outer 4
 font pango:Inter 10
 # client.focused #9d7cd8 #9d7cd8 #ffffff #ff9e64 #9d7cd8
-client.focused #414868 #414868 #ffffff #3d59a1 #414868
+client.focused #6272a4 #6272a4 #ffffff #3d59a1 #6272a4
 seat seat0 xcursor_theme 'Bibata-Modern-Classic'
 
 ### Variables
@@ -43,7 +43,7 @@ shadow_blur_radius 8
 shadow_color #000000B9
 blur enable
 corner_radius 8
-default_dim_inactive 0.4 
+# default_dim_inactive 0.4 
 
 layer_effects "waybar" {
   blur enable;
@@ -113,14 +113,14 @@ input "type:pointer" accel_profile flat
     bindsym $mod+Alt+l exec swaylock -f
     bindsym $mod+p output DP-3 power toggle
     bindsym $mod+shift+p output DP-3 toggle
-    for_window [class="scrcpy"] floating enable, border pixel 0
-    for_window [app_id = ".*Calculator.*"] floating enable, border pixel 0
+    for_window [class="scrcpy"] floating enable, border pixel 2
+    for_window [app_id = ".*Calculator.*"] floating enable, border pixel 2
 
     bindsym $mod+Alt+p exec scrcpy --tcpip=192.168.1.252 --no-audio
     # Start a terminal
     bindsym $mod+Return exec $term
 
-    for_window [app_id="kittyfloat"] floating enable, border pixel 0
+    for_window [app_id="kittyfloat"] floating enable, border pixel 2
     bindsym $mod+Shift+Return exec kitty --class kittyfloat, kittyfloat
     bindsym $mod+Shift+n exec swaync-client -t -sw
     bindsym Alt+Tab exec rofi -show window
@@ -188,7 +188,7 @@ input "type:pointer" accel_profile flat
     bindsym $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle, border pixel 0
+    bindsym $mod+Shift+space floating toggle, border pixel 2
 
     # Swap focus between the tiling area and the floating area
     bindsym $mod+Tab focus mode_toggle
@@ -277,7 +277,7 @@ mode $power {
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym Ctrl+Tab scratchpad show, border pixel 0
+    bindsym Ctrl+Tab scratchpad show, border pixel 2
 #
 # Resizing containers:
 #
@@ -332,7 +332,7 @@ bindsym $mod+r mode "resize"
 
     bindsym $mod+Alt+B exec /home/eduardo/.config/rofi/bluetooth-menu/rofi-bluetooth
     bindsym $mod+Alt+N exec /home/eduardo/.config/rofi/wifi-menu/networkmanager_dmenu
-    bindsym $mod+period exec rofimoji -a copy
+    bindsym Alt+period exec rofimoji -a copy
 
 #
 # Status Bar:

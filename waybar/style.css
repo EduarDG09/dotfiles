@@ -1,3 +1,5 @@
+@import url("./colors.css");
+
 * {
   /* `otf-font-awesome` is required to be installed for icons */
   font-family: Inter, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
@@ -8,7 +10,8 @@
 }
 
 window#waybar {
-  background: rgba(59, 66, 97, .8);
+  /* background: rgba(59, 66, 97, .8); */
+  background: @background;
   /*background-image: linear-gradient(to right bottom, #3b4261, #363d59, #323851, #2d334a, #292e42);*/
   color: #ffffff;
   transition-property: background-color;
@@ -71,22 +74,25 @@ button:hover {
 }
 
 #workspaces button:hover {
-  background: rgba(0, 0, 0, 0.2);
+  /* background: rgba(0, 0, 0, 0.2); */
+  background: @background-darker;
 }
 
 #workspaces button.focused {
-  background-color: #7aa2f7;
+  background-color: @purple;
+  color: #332B61;
+  font-weight: bold;
   padding: 0 6px;
   box-shadow: inset rgba(0, 0, 0, .3) 1px 1px 3px, inset rgba(0, 0, 0, .3) -1px -1px 3px;
 }
 
 #workspaces button.urgent {
-  background-color: #9b59b6;
+  background-color: @orange;
 }
 
 #mpris {
   margin: 4px 0;
-  background: rgba(0, 0, 0, 0.2);
+  background: @background-darker;
   padding: 0 12px;
   border-radius: 4px
 }
@@ -95,11 +101,11 @@ button:hover {
   margin: 4px 0;
   font-size: 14px;
   /*margin-right: 6px;*/
-  min-width: 10px;
-  padding: 0 4px;
-  padding-left: 2px;
-  background-color: #ff9e64;
-  color: #ff9e64;
+  /* min-width: 10px; */
+  padding: 0 6px;
+  padding-right: 9px;
+  background-color: @orange;
+  color: #A74F2C;
   border-radius: 4px;
   box-shadow: inset rgba(0, 0, 0, 0.3) 1px 1px 3px, inset rgba(0, 0, 0, 0.3) -1px -1px 3px;
 }
@@ -115,7 +121,6 @@ button:hover {
 #wireplumber,
 #custom-media,
 #tray,
-#mode,
 #idle_inhibitor,
 #scratchpad,
 #power-profiles-daemon,
@@ -145,7 +150,7 @@ button:hover {
 }
 
 #clock:hover {
-  background: rgba(0, 0, 0, 0.2);
+  background: @background-darker;
 }
 
 #battery {
@@ -225,7 +230,7 @@ label:focus {
 }
 
 #network.disconnected {
-  background-color: #c53b53;
+  background-color: @red;
   box-shadow: inset rgba(0, 0, 0, 0.3) 1px 1px 3px, inset rgba(0, 0, 0, 0.3) -1px -1px 3px;
 }
 
@@ -278,7 +283,8 @@ label:focus {
 }
 
 #custom-vpn {
-  background-color: #c53b53;
+  background-color: @comment;
+  color: #2C2555;
   box-shadow: inset rgba(0, 0, 0, 0.3) 1px 1px 3px, inset rgba(0, 0, 0, 0.3) -1px -1px 3px;
   min-width: 30px;
   padding: 0 4px;
@@ -373,7 +379,7 @@ label:focus {
 
 #keyboard-state {
   padding: 0 0px;
-  margin: 5px 0;
+  margin: 4px 0;
   border-radius: 4px;
 }
 
@@ -385,7 +391,8 @@ label:focus {
 #keyboard-state>label.locked {
   padding: 0 5px;
   padding-left: 8px;
-  background-color: #ff9e64;
+  background-color: @orange;
+  color: #A74F2C;
   box-shadow: inset rgba(0, 0, 0, 0.3) 1px 1px 3px, inset rgba(0, 0, 0, 0.3) -1px -1px 3px;
 }
 

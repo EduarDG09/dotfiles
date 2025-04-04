@@ -128,6 +128,7 @@
     },
     "custom/vpn": {
         "exec": "ip add show | grep -qF tun0 && echo VPN ",
+        "tooltip": false,
         "hide-empty-text": true,
         "interval": 1
     },

@@ -1,14 +1,6 @@
 return {
-  "folke/tokyonight.nvim",
-  lazy_ = false,
-  opts = {
-    transparent = true,
-    styles = {
-      sidebars = "transparent",
-      floats = "transparent",
-    },
-  },
+  "Mofiqul/dracula.nvim",
   config = function()
-    vim.cmd[[colorscheme tokyonight-night]]
+    vim.cmd [[colorscheme dracula]]
   end
 }
