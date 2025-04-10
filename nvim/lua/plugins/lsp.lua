@@ -5,8 +5,8 @@ return {
     "folke/neodev.nvim",
   },
   config = function()
-    local capabilities = require('cmp_nvim_lsp').default_capabilities()
     local lspconfig = require("lspconfig")
+    local capabilities = require('cmp_nvim_lsp').default_capabilities()
     -- require("neodev").setup()
 
     lspconfig.lua_ls.setup({
@@ -27,6 +27,12 @@ return {
 
     lspconfig.html.setup({
       capabilities = capabilities,
+    })
+
+    lspconfig.rust_analyzer.setup({
+      capabilities = capabilities,
+      filetypes = { 'rust' },
+      single_file_support = true,
     })
 
     vim.api.nvim_create_autocmd('LspAttach', {

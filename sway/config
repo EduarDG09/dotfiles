@@ -8,7 +8,7 @@ gaps inner 8
 # gaps outer 4
 font pango:Inter 10
 # client.focused #9d7cd8 #9d7cd8 #ffffff #ff9e64 #9d7cd8
-client.focused #6272a4 #6272a4 #ffffff #3d59a1 #6272a4
+client.focused #ffb86c #ffb86c #ffffff #3d59a1 #ffb86c
 seat seat0 xcursor_theme 'Bibata-Modern-Classic'
 
 ### Variables
