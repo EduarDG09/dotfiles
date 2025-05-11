@@ -199,7 +199,7 @@ input "type:pointer" accel_profile flat
 #
 # Modes
 #
-set $workspaces 󰯍
+set $workspaces workspaces
 bindsym $mod+w mode "$workspaces" 
 mode $workspaces {
     
@@ -239,11 +239,11 @@ mode $workspaces {
     bindsym Return mode "default"
 }
 
-set $launch 󰀻
+set $launch launch
 bindsym $mod+d mode "$launch"
 mode $launch {
     
-    bindsym w exec firefox, mode "default"
+    bindsym f exec firefox, mode "default"
     bindsym e exec nemo, mode "default"
     bindsym d exec $menu, mode "default"
     bindsym s exec spotify-launcher, mode "default"
@@ -251,12 +251,15 @@ mode $launch {
     bindsym Shift+n exec kitty --class kittyfloat nvim, mode "default"
     bindsym a exec ani-cli --rofi -q 1080, mode "default"
     bindsym Shift+a exec ani-cli --rofi -c -q 1080, mode "default"
+    bindsym v exec kitty --class kittyfloat sudo openvpn /home/eduardo/proton/us-free-88.protonvpn.udp.ovpn, mode "default"
+    bindsym w exec warp-cli connect, mode "default"
+    bindsym Shift+w exec warp-cli disconnect, mode "default"
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
 }
 
-set $power 
+set $power power
 bindsym $mod+x mode "$power"
 mode $power {
     

@@ -23,6 +23,7 @@
         //"custom/audio_idle_inhibitor",
         "keyboard-state",
         "custom/vpn",
+        "custom/warp",
         "network",
         "pulseaudio",
         "clock"
@@ -127,7 +128,13 @@
         "ignored-sinks": ["Easy Effects Sink"]
     },
     "custom/vpn": {
-        "exec": "ip add show | grep -qF tun0 && echo VPN ",
+        "exec": "ip add show | grep -qF tun0 && echo vpn ",
+        "tooltip": false,
+        "hide-empty-text": true,
+        "interval": 1
+    },
+    "custom/warp": {
+        "exec": "curl https://www.cloudflare.com/cdn-cgi/trace/ | grep -qF warp=on && echo warp",
         "tooltip": false,
         "hide-empty-text": true,
         "interval": 1

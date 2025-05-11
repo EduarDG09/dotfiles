@@ -103,7 +103,6 @@ button:hover {
   /*margin-right: 6px;*/
   /* min-width: 10px; */
   padding: 0 6px;
-  padding-right: 9px;
   background-color: @orange;
   color: #A74F2C;
   border-radius: 4px;
@@ -283,9 +282,25 @@ label:focus {
 }
 
 #custom-vpn {
-  background-color: @comment;
-  color: #2C2555;
+  background-color: @red;
+  color: #6F1919;
+  /* background-color: @comment; */
+  /* color: #2C2555; */
   box-shadow: inset rgba(0, 0, 0, 0.3) 1px 1px 3px, inset rgba(0, 0, 0, 0.3) -1px -1px 3px;
+  font-size: 14px;
+  min-width: 30px;
+  padding: 0 4px;
+  margin: 4px 0;
+  border-radius: 4px;
+}
+
+#custom-warp {
+  background-color: @red;
+  color: #6F1919;
+  /* background-color: @comment; */
+  /* color: #2C2555; */
+  box-shadow: inset rgba(0, 0, 0, 0.3) 1px 1px 3px, inset rgba(0, 0, 0, 0.3) -1px -1px 3px;
+  font-size: 14px;
   min-width: 30px;
   padding: 0 4px;
   margin: 4px 0;
