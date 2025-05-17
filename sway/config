@@ -3,7 +3,7 @@
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
 # Read `man 5 sway` for a complete reference.
-default_border pixel 2
+default_border pixel 1
 gaps inner 8
 # gaps outer 4
 font pango:Inter 10
@@ -42,7 +42,7 @@ shadows_on_csd enable
 shadow_blur_radius 8
 shadow_color #000000B9
 blur enable
-corner_radius 8
+corner_radius 6
 # default_dim_inactive 0.4 
 
 layer_effects "waybar" {
@@ -77,8 +77,7 @@ layer_effects "swaync-notification-window" {
 
 ### Idle configuration
 exec swayidle -w \
-      timeout 550 'swaylock -f' \
-      timeout 750 'swaymsg "output * power off"' \
+      timeout 950 'swaymsg "output * power off"' \
       resume 'swaymsg "output * power on"' \
 	    before-sleep 'swaylock -f'
 
@@ -113,14 +112,14 @@ input "type:pointer" accel_profile flat
     bindsym $mod+Alt+l exec swaylock -f
     bindsym $mod+p output DP-3 power toggle
     bindsym $mod+shift+p output DP-3 toggle
-    for_window [class="scrcpy"] floating enable, border pixel 2
-    for_window [app_id = ".*Calculator.*"] floating enable, border pixel 2
+    for_window [class="scrcpy"] floating enable, border pixel 1
+    for_window [app_id = ".*Calculator.*"] floating enable, border pixel 1
 
     bindsym $mod+Alt+p exec scrcpy --tcpip=192.168.1.252 --no-audio
     # Start a terminal
     bindsym $mod+Return exec $term
 
-    for_window [app_id="kittyfloat"] floating enable, border pixel 2
+    for_window [app_id="kittyfloat"] floating enable, border pixel 1
     bindsym $mod+Shift+Return exec kitty --class kittyfloat, kittyfloat
     bindsym $mod+Shift+n exec swaync-client -t -sw
     bindsym Alt+Tab exec rofi -show window
@@ -188,7 +187,7 @@ input "type:pointer" accel_profile flat
     bindsym $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle, border pixel 2
+    bindsym $mod+Shift+space floating toggle, border pixel 1
 
     # Swap focus between the tiling area and the floating area
     bindsym $mod+Tab focus mode_toggle
@@ -243,7 +242,8 @@ set $launch launch
 bindsym $mod+d mode "$launch"
 mode $launch {
     
-    bindsym f exec firefox, mode "default"
+    bindsym f exec qbpm choose --menu rofi, mode "default"
+    bindsym Shift+f exec firefox, mode "default"
     bindsym e exec nemo, mode "default"
     bindsym d exec $menu, mode "default"
     bindsym s exec spotify-launcher, mode "default"
@@ -280,7 +280,7 @@ mode $power {
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym Ctrl+Tab scratchpad show, border pixel 2
+    bindsym Ctrl+Tab scratchpad show, border pixel 1
 #
 # Resizing containers:
 #

@@ -25,6 +25,15 @@ return {
       capabilities = capabilities,
     })
 
+    lspconfig.pyright.setup({
+      capabilities = capabilities,
+      filetypes = { "python" }
+    })
+
+    lspconfig.ruff.setup({
+      capabilities = capabilities,
+    })
+
     lspconfig.html.setup({
       capabilities = capabilities,
     })
