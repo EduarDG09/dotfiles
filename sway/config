@@ -4,8 +4,8 @@
 #
 # Read `man 5 sway` for a complete reference.
 default_border pixel 1
-gaps inner 8
-# gaps outer 4
+gaps inner 2
+gaps outer 1
 font pango:Inter 10
 # client.focused #9d7cd8 #9d7cd8 #ffffff #ff9e64 #9d7cd8
 client.focused #ffb86c #ffb86c #ffffff #3d59a1 #ffb86c
@@ -118,6 +118,7 @@ input "type:pointer" accel_profile flat
     bindsym $mod+Alt+p exec scrcpy --tcpip=192.168.1.252 --no-audio
     # Start a terminal
     bindsym $mod+Return exec $term
+    bindsym Alt+Return exec kitty --class kittyfixed
 
     for_window [app_id="kittyfloat"] floating enable, border pixel 1
     bindsym $mod+Shift+Return exec kitty --class kittyfloat, kittyfloat
@@ -269,6 +270,9 @@ mode $power {
     bindsym Escape mode "default"
     bindsym Return mode "default"
 }
+# Assigments
+assign [app_id="kittyfixed"] workspace 3
+for_window [app_id="kittyfixed"] workspace 3
 #
 # Scratchpad:
 #

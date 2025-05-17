@@ -7,7 +7,8 @@ return {
   config = function()
     local lspconfig = require("lspconfig")
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
-    -- require("neodev").setup()
+    -- local capabilities = require('blink.cmp').get_lsp_capabilities()
+    require("neodev").setup()
 
     lspconfig.lua_ls.setup({
       capabilities = capabilities,
@@ -21,16 +22,12 @@ return {
       }
     })
 
+    lspconfig.pylsp.setup({
+      capabilities = capabilities,
+      filetypes = { 'python' }
+    })
+
     lspconfig.cssls.setup({
-      capabilities = capabilities,
-    })
-
-    lspconfig.pyright.setup({
-      capabilities = capabilities,
-      filetypes = { "python" }
-    })
-
-    lspconfig.ruff.setup({
       capabilities = capabilities,
     })
 
