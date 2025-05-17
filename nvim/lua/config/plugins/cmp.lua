@@ -8,7 +8,7 @@ local M = {}
 
 function M.setup()
   cmp.setup({
-    snippet =  {
+    snippet = {
       expand = function(args)
         luasnip.lsp_expand(args.body)
       end,
@@ -25,7 +25,7 @@ function M.setup()
         else
           fallback()
         end
-      end, {"i", "s"}),
+      end, { "i", "s" }),
       ["<S-Tab>"] = cmp.mapping.select_prev_item(),
       ["<CR>"] = cmp.mapping.confirm {
         behavior = cmp.ConfirmBehavior.Insert,
@@ -37,6 +37,7 @@ function M.setup()
       { name = "nvim_lsp" },
       { name = "path" },
       { name = "luasnip" },
+      { name = 'nvim_lsp_signature_help' },
       { name = "buffer" },
     }
   })
@@ -47,11 +48,11 @@ function M.setup()
     sources = cmp.config.sources({
       { name = 'git' },
     }, {
-        { name = 'buffer' },
-      })
+      { name = 'buffer' },
+    })
   })
 
-  cmp.setup.cmdline({'/', '?'}, {
+  cmp.setup.cmdline({ '/', '?' }, {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
       { name = 'buffer' },
@@ -64,7 +65,7 @@ function M.setup()
       { name = 'path' },
     }, {
       { name = 'cmdline' },
-      })
+    })
   })
 end
 
