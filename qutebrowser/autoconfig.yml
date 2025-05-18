@@ -31,6 +31,7 @@ settings:
     global: Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko)
       {upstream_browser_key}/{upstream_browser_version_short} Safari/{webkit_version}
   content.javascript.clipboard:
+    https://docs.astronvim.com: access-paste
     https://draculatheme.com: access-paste
     https://github.com: access-paste
   content.media.audio_capture:
@@ -55,6 +56,8 @@ settings:
     global: 10pt
   fonts.statusbar:
     global: bold default_size default_family
+  qt.force_platformtheme:
+    global: mocha
   scrolling.smooth:
     global: true
   statusbar.show:

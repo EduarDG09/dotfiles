@@ -1,12 +1,12 @@
 c = c
 config = config
 
-import dracula.draw
+import catppuccin
 
 # Load existing settings made via :set
 config.load_autoconfig()
 
-dracula.draw.blood(c, {"spacing": {"vertical": 6, "horizontal": 8}})
+catppuccin.setup(c, "mocha", True)
 
 config.bind("tH", "config-cycle tabs.show multiple never")
 config.bind("sH", "config-cycle statusbar.show always never")
