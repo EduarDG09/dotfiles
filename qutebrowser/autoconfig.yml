@@ -13,7 +13,7 @@ settings:
   colors.webpage.darkmode.algorithm:
     global: lightness-hsl
   colors.webpage.darkmode.enabled:
-    global: true
+    global: false
   completion.height:
     global: 25%
   completion.open_categories:
@@ -33,6 +33,7 @@ settings:
   content.javascript.clipboard:
     https://docs.astronvim.com: access-paste
     https://draculatheme.com: access-paste
+    https://gemini.google.com: access-paste
     https://github.com: access-paste
   content.media.audio_capture:
     https://web.whatsapp.com: true
@@ -61,11 +62,12 @@ settings:
   scrolling.smooth:
     global: true
   statusbar.show:
-    global: in-mode
+    global: always
   tabs.show:
     global: never
   url.searchengines:
     global:
       DEFAULT: https://duckduckgo.com/?q={}
+      aur: https://archlinux.org/packages/?sort=&q={}&maintainer=&flagged=
       aw: https://wiki.archlinux.org/?search={}
       yt: https://www.youtube.com/results?search_query={}

@@ -8,7 +8,7 @@ gaps inner 2
 gaps outer 1
 font pango:Inter 10
 # client.focused #9d7cd8 #9d7cd8 #ffffff #ff9e64 #9d7cd8
-client.focused #ffb86c #ffb86c #ffffff #3d59a1 #ffb86c
+client.focused #cba6f7 #cba6f7 #ffffff #cba6f7 #cba6f7
 seat seat0 xcursor_theme 'Bibata-Modern-Classic'
 
 ### Variables
@@ -199,7 +199,7 @@ input "type:pointer" accel_profile flat
 #
 # Modes
 #
-set $workspaces workspaces
+set $workspaces  
 bindsym $mod+w mode "$workspaces" 
 mode $workspaces {
     
@@ -239,11 +239,12 @@ mode $workspaces {
     bindsym Return mode "default"
 }
 
-set $launch launch
+set $launch  
 bindsym $mod+d mode "$launch"
 mode $launch {
     
     bindsym f exec qbpm choose --menu rofi, mode "default"
+    bindsym m exec qutebrowser --target window 'https://web.whatsapp.com', mode "default"
     bindsym Shift+f exec firefox, mode "default"
     bindsym e exec nemo, mode "default"
     bindsym d exec $menu, mode "default"
@@ -260,7 +261,7 @@ mode $launch {
     bindsym Return mode "default"
 }
 
-set $power power
+set $power  
 bindsym $mod+x mode "$power"
 mode $power {
     
@@ -270,9 +271,22 @@ mode $power {
     bindsym Escape mode "default"
     bindsym Return mode "default"
 }
+
+set $config  
+bindsym $mod+c mode "$config"
+mode $config {
+    
+    bindsym s exec kitty --class kittyfixed nvim ~/.config/sway/config, mode "default"
+    bindsym w exec kitty --class kittyfixed nvim ~/.config/waybar/config.jsonc, mode "default"
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+
 # Assigments
 assign [app_id="kittyfixed"] workspace 3
 for_window [app_id="kittyfixed"] workspace 3
+
 #
 # Scratchpad:
 #
