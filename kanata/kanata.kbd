@@ -1,7 +1,8 @@
 (defcfg)
 (defsrc caps)
-(deflayermap (base-layer)
-             caps esc)
-
+(deflayer default @cap)
+(defalias
+cap (tap-hold 200 200 esc lctl)
+)
 
 
