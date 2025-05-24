@@ -32,6 +32,7 @@ settings:
       {upstream_browser_key}/{upstream_browser_version_short} Safari/{webkit_version}
   content.javascript.clipboard:
     https://docs.astronvim.com: access-paste
+    https://docs.lizardbyte.dev: access-paste
     https://draculatheme.com: access-paste
     https://gemini.google.com: access-paste
     https://github.com: access-paste
@@ -62,12 +63,13 @@ settings:
   scrolling.smooth:
     global: true
   statusbar.show:
-    global: always
+    global: in-mode
   tabs.show:
     global: never
   url.searchengines:
     global:
       DEFAULT: https://duckduckgo.com/?q={}
-      aur: https://archlinux.org/packages/?sort=&q={}&maintainer=&flagged=
+      aur: https://aur.archlinux.org/packages?O=0&K={}
       aw: https://wiki.archlinux.org/?search={}
+      pkg: https://archlinux.org/packages/?q={}
       yt: https://www.youtube.com/results?search_query={}

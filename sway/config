@@ -28,7 +28,7 @@ set $menu rofi -show drun
 ### Output configuration
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/eduardo/Pictures/wallhaven-wepq1r_1920x1080.png fill
+output * bg /home/eduardo/Pictures/forrest.png fill
 #
 # Example configuration:
 #
@@ -124,6 +124,7 @@ input "type:pointer" accel_profile flat
     bindsym $mod+Shift+Return exec kitty --class kittyfloat, kittyfloat
     bindsym $mod+Shift+n exec swaync-client -t -sw
     bindsym Alt+Tab exec rofi -show window
+    bindsym $mod+Shift+r exec normcap
 
     # Kill focused window
     bindsym $mod+q kill
@@ -349,7 +350,7 @@ bindsym $mod+r mode "resize"
 
     # Special key to take a screenshot with grim
     bindsym Print exec grim
-    bindsym $mod+Shift+S exec slurp | grim -g - - | wl-copy
+    bindsym $mod+Shift+s exec slurp | grim -g - - | wl-copy
 
     bindsym $mod+Alt+B exec /home/eduardo/.config/rofi/bluetooth-menu/rofi-bluetooth
     bindsym $mod+Alt+N exec /home/eduardo/.config/rofi/wifi-menu/networkmanager_dmenu

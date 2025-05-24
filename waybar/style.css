@@ -23,14 +23,16 @@ window#waybar.hidden {
   opacity: 0.2;
 }
 
-/*
 window#waybar.empty {
-    background-color: transparent;
 }
-window#waybar.solo {
-    background-color: #FFFFFF;
+
+window#waybar.empty #window {
+  background-color: transparent;
 }
-*/
+
+/* window#waybar.solo { */
+/*     background-color: #FFFFFF; */
+/* } */
 
 window#waybar.termite {
   background-color: #3f3f3f;
@@ -97,13 +99,20 @@ button:hover {
   padding-left: 4px;
   padding-right: 8px;
 }
+
+#workspaces button:nth-child(6) {
+  padding-left: 4px;
+  padding-right: 8px;
+}
+
 #workspaces button:hover {
   /* background: rgba(0, 0, 0, 0.2); */
   background: @surface0;
 }
 
 #workspaces button.focused {
-  background-color: @mauve;
+  /* background-color: @mauve; */
+  background-color: @rosewater;
   color: #332b61;
   font-weight: bold;
   box-shadow:
@@ -156,7 +165,13 @@ button:hover {
   color: #ffffff;
 }
 
-#window,
+#window {
+  background-color: @surface1;
+  margin: 4px 0;
+  border-radius: 4px;
+  padding: 0 8px;
+}
+
 #workspaces
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -347,6 +362,10 @@ label:focus {
   padding-right: 0px;
   margin: 4px 0;
   border-radius: 4px;
+}
+
+#custom-warp span {
+  background-color: white;
 }
 
 #custom-notification {
