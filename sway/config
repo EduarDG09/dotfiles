@@ -117,8 +117,8 @@ input "type:pointer" accel_profile flat
 
     bindsym $mod+Alt+p exec scrcpy --tcpip=192.168.1.252 --no-audio
     # Start a terminal
-    bindsym $mod+Return exec $term
-    bindsym Alt+Return exec kitty --class kittyfixed
+    bindsym $mod+Return exec /opt/open-terminal
+    bindsym Alt+Return exec $term
 
     for_window [app_id="kittyfloat"] floating enable, border pixel 2
     bindsym $mod+Shift+Return exec kitty --class kittyfloat, kittyfloat
