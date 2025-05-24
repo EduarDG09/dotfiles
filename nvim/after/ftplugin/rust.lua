@@ -1,6 +1,0 @@
-vim.keymap.set('n', '<space>rt', function()
-  vim.cmd.wincmd('j')
-  vim.fn.chansend(job_id, { "cargo run\r\n" })
-  vim.fn.feedkeys("<S-g>")
-  vim.cmd.wincmd('k')
-end)
