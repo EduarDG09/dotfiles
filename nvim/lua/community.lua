@@ -10,5 +10,6 @@ return {
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.bash" },
+  { import = "astrocommunity.pack.markdown" },
   -- import/override with your plugins folder
 }
