@@ -65,7 +65,7 @@ settings:
   statusbar.show:
     global: in-mode
   tabs.show:
-    global: never
+    global: multiple
   url.searchengines:
     global:
       DEFAULT: https://duckduckgo.com/?q={}
