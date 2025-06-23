@@ -21,7 +21,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term kitty
+set $term ghostty
 # Your preferred application launcher
 set $menu rofi -show drun
 
@@ -120,8 +120,8 @@ input "type:pointer" accel_profile flat
     bindsym $mod+Return exec /opt/open-terminal
     bindsym Alt+Return exec $term
 
-    for_window [app_id="kittyfloat"] floating enable, border pixel 2
-    bindsym $mod+Shift+Return exec kitty --class kittyfloat, kittyfloat
+    for_window [app_id="com.ghostty.float"] floating enable, border pixel 2
+    bindsym $mod+Shift+Return exec ghostty --class=com.ghostty.float
     bindsym $mod+Shift+n exec swaync-client -t -sw
     bindsym Alt+Tab exec rofi -show window
     bindsym $mod+Shift+r exec normcap
@@ -171,6 +171,12 @@ input "type:pointer" accel_profile flat
 #
 # Workspaces:
 #
+    workspace 1 output DP-3
+    workspace 2 output DP-3
+    workspace 3 output DP-3
+    workspace 4 output DP-3
+    workspace 5 output DP-3
+    workspace 6 output DP-3
 #
 # Layout stuff:
 #
@@ -211,10 +217,9 @@ mode $workspaces {
     bindsym a workspace number 4, mode "default"
     bindsym s workspace number 5, mode "default"
     bindsym d workspace number 6, mode "default"
-    bindsym f workspace number 7, mode "default"
-    bindsym z workspace number 8, mode "default"
-    bindsym x workspace number 9, mode "default"
-    bindsym c workspace number 10, mode "default"
+    bindsym z workspace number 7, mode "default"
+    bindsym x workspace number 8, mode "default"
+    bindsym c workspace number 9, mode "default"
 
     # Move focused container to workspace
     bindsym Shift+q move container to workspace number 1
@@ -223,10 +228,9 @@ mode $workspaces {
     bindsym Shift+a move container to workspace number 4
     bindsym Shift+s move container to workspace number 5
     bindsym Shift+d move container to workspace number 6
-    bindsym Shift+f move container to workspace number 7
-    bindsym Shift+z move container to workspace number 8
-    bindsym Shift+x move container to workspace number 9
-    bindsym Shift+c move container to workspace number 10
+    bindsym Shift+z move container to workspace number 7
+    bindsym Shift+x move container to workspace number 8
+    bindsym Shift+c move container to workspace number 9
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 
@@ -367,8 +371,6 @@ bar {
 include /etc/sway/config.d/*
 exec swaync
 exec rquickshare & 
-exec sunshine
 # Enables inhibit_idle when playing audio
 exec sway-audio-idle-inhibit
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-# exec sworkstyle &> /tmp/sworkstyle.log

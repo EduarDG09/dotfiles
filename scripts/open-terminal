@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
 terminal=$(swaymsg -t get_tree | grep '"app_id": "com.ghostty.fixed"')
 if [ "$terminal" ]; then
+  tmux new-window -t Eduardo
   swaymsg workspace 3
 else
-  ghostty --class=com.ghostty.fixed
+  if tmux ls | grep Eduardo; then
+    ghostty --class=com.ghostty.fixed tmux attach -tEduardo
+  else
+    tmux start-server
+    kitty --class=com.ghostty.fixed tmux new-session -sEduardo
+  fi
 fi
 exit 0

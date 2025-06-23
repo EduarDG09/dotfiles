@@ -19,7 +19,7 @@
     ],
     "modules-right": [
     // "network#net2",
-        //"tray",
+        "tray",
         //"custom/audio_idle_inhibitor",
         "keyboard-state",
         "custom/vpn",
@@ -31,7 +31,7 @@
         //"custom/power"
     ],
     "sway/window": {
-      "format": "{app_id}",
+      "format": "{title}",
       "max-length": 30,
       "tooltip": false,
       "on-click-right": "swaymsg kill",

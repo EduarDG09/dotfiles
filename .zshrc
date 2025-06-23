@@ -7,7 +7,7 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-export PATH=/opt:$PATH
+export PATH=/opt/sunshine/bin/:$PATH
 
 # Path to your Oh My Zsh installation.
 # export ZSH="$HOME/.oh-my-zsh"
@@ -112,7 +112,10 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias lsa="ls -lah"
+alias ls="exa"
+alias ll="exa -lh"
+alias lsa="exa -lah"
+alias cs-vpn="sudo openvpn ~/ovpn/profile-549.ovpn"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -133,3 +136,5 @@ autoload -Uz compinit
 compinit
 
 source /home/eduardo/.config/broot/launcher/bash/br
+
+eval $(thefuck --alias)
