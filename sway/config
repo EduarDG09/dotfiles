@@ -8,7 +8,7 @@ gaps inner 2
 gaps outer 1
 font pango:Inter 10
 # client.focused #9d7cd8 #9d7cd8 #ffffff #ff9e64 #9d7cd8
-client.focused #cba6f7 #cba6f7 #ffffff #cba6f7 #cba6f7
+client.focused #cba6f7 #cba6f7 #ffffff #89b4fa #cba6f7
 seat seat0 xcursor_theme 'Bibata-Modern-Classic'
 
 ### Variables
@@ -371,6 +371,7 @@ bar {
 include /etc/sway/config.d/*
 exec swaync
 exec rquickshare & 
-# Enables inhibit_idle when playing audio
-exec sway-audio-idle-inhibit
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+for_window [app_id="com.github.iwalton3.jellyfin-media-player"] inhibit_idle focus
+for_window [app_id="firefox"] inhibit_idle fullscreen
