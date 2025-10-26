@@ -6,7 +6,7 @@
 default_border pixel 2
 gaps inner 2
 gaps outer 1
-font pango:Inter 10
+font pango:Noto 10
 # client.focused #9d7cd8 #9d7cd8 #ffffff #ff9e64 #9d7cd8
 client.focused #cba6f7 #cba6f7 #ffffff #89b4fa #cba6f7
 seat seat0 xcursor_theme 'Bibata-Modern-Classic'
@@ -21,14 +21,14 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term ghostty
+set $term kitty
 # Your preferred application launcher
 set $menu rofi -show drun
 
 ### Output configuration
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/eduardo/Pictures/forrest.png fill
+output * bg /home/eduardo/Pictures/wallhaven-rqr6xm.png fill
 #
 # Example configuration:
 #
@@ -97,7 +97,7 @@ exec swayidle -w \
 #   }
 #
 input "type:keyboard" xkb_layout us
-# input "type:keyboard" xkb_variant intl
+input "type:keyboard" xkb_variant intl
 input "type:pointer" accel_profile flat
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
@@ -115,13 +115,13 @@ input "type:pointer" accel_profile flat
     for_window [class="scrcpy"] floating enable, border pixel 2
     for_window [app_id = ".*Calculator.*"] floating enable, border pixel 2
 
-    bindsym $mod+Alt+p exec scrcpy --tcpip=192.168.1.252 --no-audio
     # Start a terminal
     bindsym $mod+Return exec /opt/open-terminal
     bindsym Alt+Return exec $term
 
-    for_window [app_id="com.ghostty.float"] floating enable, border pixel 2
-    bindsym $mod+Shift+Return exec ghostty --class=com.ghostty.float
+    for_window [app_id="kitty-float"] floating enable, border pixel 2
+    # bindsym $mod+Shift+Return exec ghostty --class=com.ghostty.float
+    bindsym $mod+Shift+Return exec kitty --class kitty-float
     bindsym $mod+Shift+n exec swaync-client -t -sw
     bindsym Alt+Tab exec rofi -show window
     bindsym $mod+Shift+r exec normcap
@@ -183,8 +183,8 @@ input "type:pointer" accel_profile flat
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+Shift+b splith
-    bindsym $mod+Shift+v splitv
+    bindsym $mod+b splith
+    bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
@@ -248,9 +248,9 @@ set $launch  
 bindsym $mod+d mode "$launch"
 mode $launch {
     
-    bindsym f exec qbpm choose --menu rofi, mode "default"
+    bindsym Shift+f exec qbpm choose --menu rofi, mode "default"
     bindsym m exec qutebrowser --target window 'https://web.whatsapp.com', mode "default"
-    bindsym Shift+f exec firefox, mode "default"
+    bindsym f exec firefox, mode "default"
     bindsym e exec nemo, mode "default"
     bindsym d exec $menu, mode "default"
     bindsym s exec spotify-launcher, mode "default"
@@ -261,10 +261,17 @@ mode $launch {
     bindsym v exec kitty --class kittyfloat sudo openvpn /home/eduardo/proton/us-free-88.protonvpn.udp.ovpn, mode "default"
     bindsym w exec warp-cli connect, mode "default"
     bindsym Shift+w exec warp-cli disconnect, mode "default"
+    bindsym z exec /home/eduardo/nerd-dictation/nerd-dictation begin --simulate-input-tool=DOTOOL, mode "default"
+    bindsym Shift+z exec /home/eduardo/nerd-dictation/nerd-dictation end, mode "default"
+
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
 }
+
+# Push-to-talk for nerd-dictation (persistent process)
+# bindsym Mod1+1 exec /home/eduardo/nerd-dictation/nerd-dictation resume
+# bindsym Mod1+2 exec /home/eduardo/nerd-dictation/nerd-dictation suspend
 
 set $power  
 bindsym $mod+x mode "$power"
@@ -289,8 +296,8 @@ mode $config {
 }
 
 # Assigments
-assign [app_id="com.ghostty.fixed"] workspace 3
-for_window [app_id="com.ghostty.fixed"] workspace 3
+assign [app_id="kittyfixed"] workspace 3
+for_window [app_id="kittyfixed"] workspace 3
 
 #
 # Scratchpad:
@@ -372,6 +379,8 @@ include /etc/sway/config.d/*
 exec swaync
 exec rquickshare & 
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id /home/eduardo/nerd-dictation/nerd-dictation --suspend-on-start --simulate-input-tool=DOTOOL
 
 for_window [app_id="com.github.iwalton3.jellyfin-media-player"] inhibit_idle focus
-for_window [app_id="firefox"] inhibit_idle fullscreen
+for_window [app_id="firefox"] inhibit_idle focus
+for_window [class="zoom"] inhibit_idle focus

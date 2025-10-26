@@ -2,10 +2,10 @@
 
 * {
   /* `otf-font-awesome` is required to be installed for icons */
-  font-family: Inter, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  font-family: Noto, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
   font-weight: bold;
   padding: 0px 2px;
-  font-size: 12px;
+  font-size: 13px;
   /*transition: background-color linear 150ms;*/
 }
 
