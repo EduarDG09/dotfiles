@@ -28,7 +28,7 @@ set $menu rofi -show drun
 ### Output configuration
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/eduardo/Pictures/wallhaven-rqr6xm.png fill
+output * bg /home/eduardo/Pictures/wallhaven-5y75x5_1920x1080.png fill
 #
 # Example configuration:
 #
@@ -108,6 +108,9 @@ input "type:pointer" accel_profile flat
 #
     for_window [app_id="firefox" title="^Picture-in-Picture$"] \
     floating enable, move position 877 450, sticky enabled
+
+    for_window [app_id="webapps"] \
+    floating enable, resize set 1024 720, border pixel 2
 
     bindsym $mod+Alt+l exec swaylock -f
     bindsym $mod+p output DP-3 power toggle
@@ -250,7 +253,7 @@ mode $launch {
     
     bindsym Shift+f exec qbpm choose --menu rofi, mode "default"
     bindsym m exec qutebrowser --target window 'https://web.whatsapp.com', mode "default"
-    bindsym f exec firefox, mode "default"
+    bindsym w exec zen-browser, mode "default"
     bindsym e exec nemo, mode "default"
     bindsym d exec $menu, mode "default"
     bindsym s exec spotify-launcher, mode "default"
@@ -259,10 +262,11 @@ mode $launch {
     bindsym a exec ani-cli --rofi -q 1080, mode "default"
     bindsym Shift+a exec ani-cli --rofi -c -q 1080, mode "default"
     bindsym v exec kitty --class kittyfloat sudo openvpn /home/eduardo/proton/us-free-88.protonvpn.udp.ovpn, mode "default"
-    bindsym w exec warp-cli connect, mode "default"
-    bindsym Shift+w exec warp-cli disconnect, mode "default"
+    bindsym x exec warp-cli connect, mode "default"
+    bindsym Shift+x exec warp-cli disconnect, mode "default"
     bindsym z exec /home/eduardo/nerd-dictation/nerd-dictation begin --simulate-input-tool=DOTOOL, mode "default"
     bindsym Shift+z exec /home/eduardo/nerd-dictation/nerd-dictation end, mode "default"
+    bindsym c exec zen-browser --new-instance -P webapps --new-window https://web.whatsapp.com --name webapps, mode "default"
 
 
     bindsym Escape mode "default"
@@ -350,9 +354,11 @@ bindsym $mod+r mode "resize"
     # Source volume toggle mute
     bindsym XF86AudioMicMute exec swayosd-client --input-volume mute-toggle
     # Volume raise with max value
-    bindsym $mod+Alt+w exec swayosd-client --output-volume raise --max-volume 120
+    bindsym XF86AudioRaiseVolume exec swayosd-client --output-volume raise --max-volume 120
+    bindsym $mod+alt+w exec swayosd-client --output-volume raise --max-volume 120
     # Volume lower with max value
-    bindsym $mod+Alt+s exec swayosd-client --output-volume lower --max-volume 120
+    bindsym XF86AudioLowerVolume exec swayosd-client --output-volume lower --max-volume 120
+    bindsym $mod+alt+s exec swayosd-client --output-volume lower --max-volume 120
     # next and previous song
     bindsym $mod+Alt+d exec playerctl next
     bindsym $mod+Alt+a exec playerctl previous
@@ -380,6 +386,7 @@ exec swaync
 exec rquickshare & 
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id /home/eduardo/nerd-dictation/nerd-dictation --suspend-on-start --simulate-input-tool=DOTOOL
+exec espanso service start --unmanaged
 
 for_window [app_id="com.github.iwalton3.jellyfin-media-player"] inhibit_idle focus
 for_window [app_id="firefox"] inhibit_idle focus

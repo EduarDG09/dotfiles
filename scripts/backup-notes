@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+cd /mnt/files/memos-bkp/ || exit
+scp -r peeka@rackvm:/opt/docker/memos/data/* .
+git add .
+git status
+git commit -m "$(date +%d/%m/%Y)"
+git push origin main
+exit
