@@ -383,7 +383,6 @@ bar {
 
 include /etc/sway/config.d/*
 exec swaync
-exec rquickshare & 
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id /home/eduardo/nerd-dictation/nerd-dictation --suspend-on-start --simulate-input-tool=DOTOOL
 exec espanso service start --unmanaged
