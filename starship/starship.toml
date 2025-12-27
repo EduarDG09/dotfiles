@@ -200,3 +200,5 @@ symbol = " "
 
 [gradle]
 symbol = " "
+
+command_timeout = 1000
