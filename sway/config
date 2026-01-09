@@ -1,14 +1,18 @@
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
 # Default config for sway
 #
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
 # Read `man 5 sway` for a complete reference.
-default_border pixel 2
-gaps inner 2
-gaps outer 1
+default_border pixel 1
+gaps inner 4
+gaps outer 4
 font pango:Noto 10
 # client.focused #9d7cd8 #9d7cd8 #ffffff #ff9e64 #9d7cd8
 client.focused #cba6f7 #cba6f7 #ffffff #89b4fa #cba6f7
+client.focused #ffffff56 #ffffff56 #ffffff #89b4fa #ffffff56
 seat seat0 xcursor_theme 'Bibata-Modern-Classic'
 
 ### Variables
@@ -28,7 +32,7 @@ set $menu rofi -show drun
 ### Output configuration
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/eduardo/Pictures/wallhaven-5y75x5_1920x1080.png fill
+# output * bg /home/eduardo/Pictures/alfa.png fill
 #
 # Example configuration:
 #
@@ -37,43 +41,43 @@ output * bg /home/eduardo/Pictures/wallhaven-5y75x5_1920x1080.png fill
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### swayfx 
-# shadows enable
-# shadows_on_csd enable
-# shadow_blur_radius 8
-# shadow_color #000000B9
+shadows enable
+shadows_on_csd enable
+shadow_blur_radius 14
+shadow_color #00000089
 # blur enable
-# corner_radius 6
-# # default_dim_inactive 0.4 
-#
+corner_radius 8
+# default_dim_inactive 0.4 
+
 # layer_effects "waybar" {
 #   blur enable;
 #   blur_ignore_transparent enable;
 #   shadows enable;
 # }
-#
-# layer_effects "gtk-layer-shell" {
-#   blur enable;
-#   blur_ignore_transparent enable;
-#   shadows enable;
-# }
-#
-# layer_effects "rofi" {
-#   blur enable;
-#   blur_ignore_transparent enable;
-#   shadows enable;
-# }
-#
-# layer_effects "swaync-control-center" {
-#   blur enable;
-#   blur_ignore_transparent enable;
-#   shadows enable;
-# }
-#
-# layer_effects "swaync-notification-window" {
-#   blur enable;
-#   blur_ignore_transparent enable;
-#   # shadows enable;
-# }
+
+layer_effects "gtk-layer-shell" {
+  blur enable;
+  blur_ignore_transparent enable;
+  shadows enable;
+}
+
+layer_effects "rofi" {
+  blur enable;
+  blur_ignore_transparent enable;
+  shadows enable;
+}
+
+layer_effects "swaync-control-center" {
+  blur enable;
+  blur_ignore_transparent enable;
+  shadows enable;
+}
+
+layer_effects "swaync-notification-window" {
+  blur enable;
+  blur_ignore_transparent enable;
+  # shadows enable;
+}
 
 ### Idle configuration
 exec swayidle -w \
@@ -106,23 +110,23 @@ input "type:pointer" accel_profile flat
 #
 # Basics:
 #
-    for_window [app_id="firefox" title="^Picture-in-Picture$"] \
+    for_window [app_id="zen" title="^Picture-in-Picture$"] \
     floating enable, move position 877 450, sticky enabled
 
     for_window [app_id="webapps"] \
-    floating enable, resize set 1024 720, border pixel 2
+    floating enable, resize set 1024 720, border pixel 1
 
     bindsym $mod+Alt+l exec swaylock -f
     bindsym $mod+p output DP-3 power toggle
     bindsym $mod+shift+p output DP-3 toggle
-    for_window [class="scrcpy"] floating enable, border pixel 2
-    for_window [app_id = ".*Calculator.*"] floating enable, border pixel 2
+    for_window [class="scrcpy"] floating enable, border pixel 1
+    for_window [app_id = ".*Calculator.*"] floating enable, border pixel 1
 
     # Start a terminal
     bindsym $mod+Return exec /opt/open-terminal
     bindsym Alt+Return exec $term
 
-    for_window [app_id="kitty-float"] floating enable, border pixel 2
+    for_window [app_id="kitty-float"] floating enable, border pixel 1
     # bindsym $mod+Shift+Return exec ghostty --class=com.ghostty.float
     bindsym $mod+Shift+Return exec kitty --class kitty-float
     bindsym $mod+Shift+n exec swaync-client -t -sw
@@ -198,7 +202,7 @@ input "type:pointer" accel_profile flat
     bindsym $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle, border pixel 2
+    bindsym $mod+Shift+space floating toggle, border pixel 1
 
     # Swap focus between the tiling area and the floating area
     bindsym $mod+Tab focus mode_toggle
@@ -209,7 +213,7 @@ input "type:pointer" accel_profile flat
 #
 # Modes
 #
-set $workspaces  
+set $workspaces "1"
 bindsym $mod+w mode "$workspaces" 
 mode $workspaces {
     
@@ -247,7 +251,7 @@ mode $workspaces {
     bindsym Return mode "default"
 }
 
-set $launch  
+set $launch "2"
 bindsym $mod+d mode "$launch"
 mode $launch {
     
@@ -264,8 +268,6 @@ mode $launch {
     bindsym v exec kitty --class kittyfloat sudo openvpn /home/eduardo/proton/us-free-88.protonvpn.udp.ovpn, mode "default"
     bindsym x exec warp-cli connect, mode "default"
     bindsym Shift+x exec warp-cli disconnect, mode "default"
-    bindsym z exec /home/eduardo/nerd-dictation/nerd-dictation begin --simulate-input-tool=DOTOOL, mode "default"
-    bindsym Shift+z exec /home/eduardo/nerd-dictation/nerd-dictation end, mode "default"
     bindsym c exec zen-browser --new-instance -P webapps --new-window https://web.whatsapp.com --name webapps, mode "default"
 
 
@@ -277,7 +279,7 @@ mode $launch {
 # bindsym Mod1+1 exec /home/eduardo/nerd-dictation/nerd-dictation resume
 # bindsym Mod1+2 exec /home/eduardo/nerd-dictation/nerd-dictation suspend
 
-set $power  
+set $power "3"
 bindsym $mod+x mode "$power"
 mode $power {
     
@@ -288,7 +290,7 @@ mode $power {
     bindsym Return mode "default"
 }
 
-set $config  
+set $config "4" 
 bindsym $mod+c mode "$config"
 mode $config {
     
@@ -314,7 +316,7 @@ for_window [app_id="kittyfixed"] workspace 3
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym Ctrl+Tab scratchpad show, border pixel 2
+    bindsym Ctrl+Tab scratchpad show, border pixel 1
 #
 # Resizing containers:
 #
@@ -377,16 +379,18 @@ bindsym $mod+r mode "resize"
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    swaybar_command waybar
-}
+# bar {
+#     swaybar_command quickshell
+# }
 
 include /etc/sway/config.d/*
+exec qs
 exec swaync
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id /home/eduardo/nerd-dictation/nerd-dictation --suspend-on-start --simulate-input-tool=DOTOOL
 exec espanso service start --unmanaged
+exec awww-daemon && awww img ~/Pictures/animated-wallpapers/wallpaper-polygonmesh.gif
+# exec mpvpaper -o "no-audio loop" DP-3 /home/eduardo/Pictures/animated-wallpapers/wallpaper-cyberpunk-city.mp4
 
 for_window [app_id="com.github.iwalton3.jellyfin-media-player"] inhibit_idle focus
-for_window [app_id="firefox"] inhibit_idle focus
+for_window [app_id="zen"] inhibit_idle focus
 for_window [class="zoom"] inhibit_idle focus
