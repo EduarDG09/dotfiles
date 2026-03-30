@@ -1,5 +1,11 @@
+set $uv_path /home/eduardo/.local/bin
+exec_always swaymsg "set $PATH $uv_path:$PATH"
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec dbus-update-activation-environment --systemd PATH
+exec systemctl --user import-environment PATH
+exec systemctl --user restart kbd-layout.service
+set $ipc qs -c noctalia-shell ipc call
 
 # Default config for sway
 #
@@ -32,7 +38,7 @@ set $menu rofi -show drun
 ### Output configuration
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# output * bg /home/eduardo/Pictures/alfa.png fill
+output * bg /home/eduardo/Pictures/alfa.png fill
 #
 # Example configuration:
 #
@@ -124,14 +130,14 @@ input "type:pointer" accel_profile flat
 
     # Start a terminal
     bindsym $mod+Return exec /opt/open-terminal
-    bindsym Alt+Return exec $term
+    bindsym $mod+Alt+Return exec $term
 
     for_window [app_id="kitty-float"] floating enable, border pixel 1
     # bindsym $mod+Shift+Return exec ghostty --class=com.ghostty.float
     bindsym $mod+Shift+Return exec kitty --class kitty-float
     bindsym $mod+Shift+n exec swaync-client -t -sw
     bindsym Alt+Tab exec rofi -show window
-    bindsym $mod+Shift+r exec normcap
+    bindsym $mod+Shift+r exec /home/eduardo/.local/bin/normcap
 
     # Kill focused window
     bindsym $mod+q kill
@@ -182,8 +188,8 @@ input "type:pointer" accel_profile flat
     workspace 2 output DP-3
     workspace 3 output DP-3
     workspace 4 output DP-3
-    workspace 5 output DP-3
-    workspace 6 output DP-3
+    workspace 5 output HEADLESS-1
+    workspace 6 output HEADLESS-1
 #
 # Layout stuff:
 #
@@ -255,11 +261,12 @@ set $launch "2"
 bindsym $mod+d mode "$launch"
 mode $launch {
     
-    bindsym Shift+f exec qbpm choose --menu rofi, mode "default"
+    bindsym Shift+f exec qbpm launch work, mode "default"
     bindsym m exec qutebrowser --target window 'https://web.whatsapp.com', mode "default"
     bindsym w exec zen-browser, mode "default"
+    bindsym h exec helium, mode "default"
     bindsym e exec nemo, mode "default"
-    bindsym d exec $menu, mode "default"
+    bindsym d exec $ipc launcher toggle, mode "default"
     bindsym s exec spotify-launcher, mode "default"
     bindsym n exec kitty nvim, mode "default"
     bindsym Shift+n exec kitty --class kittyfloat nvim, mode "default"
@@ -369,26 +376,29 @@ bindsym $mod+r mode "resize"
 
     # Special key to take a screenshot with grim
     bindsym Print exec grim
-    bindsym $mod+Shift+s exec slurp | grim -g - - | wl-copy
+    bindsym $mod+Shift+s exec /home/eduardo/apps/shot.sh
 
     bindsym $mod+Alt+B exec /home/eduardo/.config/rofi/bluetooth-menu/rofi-bluetooth
     bindsym $mod+Alt+N exec /home/eduardo/.config/rofi/wifi-menu/networkmanager_dmenu
-    bindsym Alt+period exec rofimoji -a copy
+    # bindsym Alt+period exec rofimoji -a copy
+    bindsym Alt+period exec $ipc launcher emoji
 
 #
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
 # bar {
-#     swaybar_command quickshell
+#     swaybar_command waybar
 # }
 
 include /etc/sway/config.d/*
-exec qs
+exec qs -c noctalia-shell
 exec swaync
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec espanso service start --unmanaged
-exec awww-daemon && awww img ~/Pictures/animated-wallpapers/wallpaper-polygonmesh.gif
+# exec awww-daemon && awww img ~/Pictures/animated-wallpapers/wallpaper-polygonmesh.gif
+# exec wlsunset -l 9.94 -L -67.17 -t 3500
+# exec sunshine
 # exec mpvpaper -o "no-audio loop" DP-3 /home/eduardo/Pictures/animated-wallpapers/wallpaper-cyberpunk-city.mp4
 
 for_window [app_id="com.github.iwalton3.jellyfin-media-player"] inhibit_idle focus
